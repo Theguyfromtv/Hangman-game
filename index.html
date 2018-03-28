@@ -44,34 +44,40 @@
 
     document.onkeyup = function(event){
     var userGuess = event.key;
-    console.log(event);
+    var code = event.keyCode;
     var c = event.keycode;
-    if(event.key){
-        lives--;
-    }
+   
 
     //var z = wrongAnswer.length
+    console.log(code)
+    if (code>95 || code<65){
+        alert("invalid key");
+    }
+    else{
 
-    for(var i=0; i<rightLetter.length; i++){
+        
+        for(var i=0; i<rightLetter.length; i++){
         
         if (rightLetter[i]===userGuess){
         answer[i] = userGuess;
         document.getElementById("word").innerHTML=answer.join(" ");
         document.getElementById("lives").innerHTML=lives;}
 
+        }
+
+        if(rightLetter.indexOf(userGuess)> -1){
+
+        }
 
         else {
             wrongAnswer.push(event.key);
             document.getElementById("guessed").innerHTML=wrongAnswer.join(" ");}
             document.getElementById("lives").innerHTML=lives;
-
-        }
-            
-           
+            lives--;
 
         }
     
-        
+    }
     
 
 
