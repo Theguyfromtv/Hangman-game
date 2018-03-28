@@ -45,27 +45,24 @@
     document.onkeyup = function(event){
     var userGuess = event.key;
     console.log(event);
-
+    var c = event.keycode;
     if(event.key){
         lives--;
     }
 
-
+    //var z = wrongAnswer.length
 
     for(var i=0; i<rightLetter.length; i++){
-        if(event.keycode > 90 || event.keycode < 65){
-            prompt("invalid key")}
         
-        else if (rightLetter[i]===userGuess){
-            answer[i] = userGuess;
-            document.getElementById("word").innerHTML=answer.join(" ");
-            document.getElementById("lives").innerHTML=lives;}
+        if (rightLetter[i]===userGuess){
+        answer[i] = userGuess;
+        document.getElementById("word").innerHTML=answer.join(" ");
+        document.getElementById("lives").innerHTML=lives;}
 
 
-
-        else if(userGuess!==rightLetter[i]){
+        else {
             wrongAnswer.push(event.key);
-            document.getElementById("guessed").innerHTML=wrongAnswer[0];}
+            document.getElementById("guessed").innerHTML=wrongAnswer.join(" ");}
             document.getElementById("lives").innerHTML=lives;
 
         }
